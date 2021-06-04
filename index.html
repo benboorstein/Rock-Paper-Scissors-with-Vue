@@ -9,21 +9,20 @@
         <title>Rock-Paper-Scissors with Vue</title>
     </head>
     <body>
-        <!-- LEFT OFF HERE -->
         <div id="app">
             <header>
                 <h1>Rock-Paper-Scissors with Vue</h1>
             </header>
             <main>
-                <ul>
-                    <li id="rock"><button>Rock</button></li>
-                    <li id="paper"><button>Paper</button></li>
-                    <li id="scissors"><button>Scissors</button></li>
-                </ul>
-            </main> 
-            <footer>
+                <ul id="ulList">
+                    <li id="tool" v-for="tool in tools" :key="tool"><button v-on:click="func(result)">{{ tool }}</button></li>
 
-            </footer>
+                    <!-- <li id="rock" v-for="tool in tools" :key="tool"><button v-on:click="func()">{{ tool }}</button></li>
+                    <li id="paper" v-for="tool in tools" :key="tool"><button v-on:click="func()">{{ tool }}</button></li>
+                    <li id="scissors" v-for="tool in tools" :key="tool"><button v-on:click="func()">{{ tool }}</button></li> -->
+                </ul>
+                <p id="result">{{ result }}</p>
+            </main>
         </div>
         <script src="https://unpkg.com/vue@next"></script>
         <script src="./assets/js/app.js"></script>

@@ -21,14 +21,11 @@ ul {
     padding: 0;
 }
 
-li {
-    font-size: 20px;
-    text-transform: uppercase;
-}
-
 button {
     border: none;
     cursor: pointer;
+    font-size: 20px;
+    text-transform: uppercase;
 }
 
 #rock button {
@@ -44,8 +41,16 @@ button {
 
 #scissors button {
     background-color: lightgreen;
-    padding: 55px 45px;
+    padding: 60px 30px;
     border-radius: 70% 0 20% 20%;
+}
+
+main p {
+    color: blue;
+    font-size: 45px;
+    text-align: center;
+    margin-top: 100px;
+    text-transform: uppercase;
 }
 
 
