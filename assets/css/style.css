@@ -47,11 +47,23 @@ button {
 
 main p {
     color: blue;
-    font-size: 45px;
     text-align: center;
-    margin-top: 100px;
     text-transform: uppercase;
 }
+
+#result {
+    font-size: 45px;
+    margin-top: 90px;
+}
+
+#user-choice, #computer-choice {
+    font-size: 25px;
+    margin-top: 25px;
+}
+
+
+
+
 
 
 

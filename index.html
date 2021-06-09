@@ -14,14 +14,17 @@
                 <h1>Rock-Paper-Scissors with Vue</h1>
             </header>
             <main>
-                <ul id="ulList">
-                    <li id="tool" v-for="tool in tools" :key="tool"><button v-on:click="func(result)">{{ tool }}</button></li>
+                <ul>
+                    <!-- RENDERING USING THE INSTANCE ARRAY -->
+                    <li :id="tool" v-for="tool in tools" :key="tool"><button v-on:click="playGame(tool)">{{ tool }}</button></li>
+                    <!-- note that, in the line above, ':id="tool"' binds (because ':id' is short for 'v-bind:id') the Vue template (i.e., this HTML) and the Vue instance (i.e., the VueJS in app.js) so that each of the three <li> is given the id of 'rock', 'paper', and 'scissors' in the order each of these appear in the 'tools' array in the Vue instance -->
 
-                    <!-- <li id="rock" v-for="tool in tools" :key="tool"><button v-on:click="func()">{{ tool }}</button></li>
-                    <li id="paper" v-for="tool in tools" :key="tool"><button v-on:click="func()">{{ tool }}</button></li>
-                    <li id="scissors" v-for="tool in tools" :key="tool"><button v-on:click="func()">{{ tool }}</button></li> -->
+                    <!-- RENDERING USING THE INSTANCE OBJECT'S KEYS (just FYI because not using for this project)-->
+                    <!-- <li id="rule" v-for="rule in Object.keys(rules)" :key="rule"><button v-on:click="playGame(rule)">{{ rule }}</button></li> -->
                 </ul>
-                <p id="result">{{ result }}</p>
+                <p id="result">{{ message }}</p>
+                <p id="user-choice">Your pick: {{ userChoice }}</p>
+                <p id="computer-choice">Computer's pick: {{ computerChoice }}</p>
             </main>
         </div>
         <script src="https://unpkg.com/vue@next"></script>
