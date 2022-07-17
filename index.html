@@ -9,7 +9,7 @@
         <title>Rock-Paper-Scissors with Vue</title>
     </head>
     <body>
-        <div id="app">
+        <div id="app" v-cloak> <!-- 'v-cloak' prevents the user from being able to see Vue rendering in the UI. I.e., thanks to 'v-cloak', the mustache syntax etc. is no longer visible for that split second. Note there is styling for 'v-cloak' in the CSS. -->
             <header>
                 <h1>Rock-Paper-Scissors with Vue</h1>
             </header>
@@ -19,8 +19,18 @@
                     <li :id="tool" v-for="tool in tools" :key="tool"><button v-on:click="playGame(tool)">{{ tool }}</button></li>
                     <!-- note that, in the line above, ':id="tool"' binds (because ':id' is short for 'v-bind:id') the Vue template (i.e., this HTML) and the Vue instance (i.e., the VueJS in app.js) so that each of the three <li> is given the id of 'rock', 'paper', and 'scissors' in the order each of these appear in the 'tools' array in the Vue instance -->
 
+                    <!--
+                    How are 'v-model' and 'v-bind' different?
+                    - 'v-model' provides TWO-way data binding
+                        - e.g., when what's in 'data' (in the Vue instance) changes, what's in 'input' (or whatever the template element is with 'v-model' on it) changes, and vice versa.
+                    - 'v-bind' provides ONE-way data binding
+                        - e.g., I think how 'v-bind:id="tool"' is being used above is a correct use of this.
+                    -->
+
+                    <!-- A note on ':key': ':key' is just crucial to have when you have a 'v-for' so that changes can be tracked by Vue. It's not important to delve into now, but if you want to be reminded, go here: https://codelistic.com/how-and-why-to-use-the-key-attribute-in-vuejs-v-for-loops. The thing to remember about ':key' is that it must always be a unique value. -->
+
                     <!-- RENDERING USING THE INSTANCE OBJECT'S KEYS (just FYI because not using for this project)-->
-                    <!-- <li id="rule" v-for="rule in Object.keys(rules)" :key="rule"><button v-on:click="playGame(rule)">{{ rule }}</button></li> -->
+                    <!-- <li :id="rule" v-for="rule in Object.keys(rules)" :key="rule"><button v-on:click="playGame(rule)">{{ rule }}</button></li> -->
                 </ul>
                 <p id="result">{{ message }}</p>
                 <p id="user-choice">Your pick: {{ userChoice }}</p>

@@ -6,7 +6,7 @@ const App = {
                 'paper',
                 'scissors'
             ],
-            rules: { 
+            rules: {
                 rock: 'scissors',
                 paper: 'rock',
                 scissors: 'paper'
@@ -17,20 +17,20 @@ const App = {
         }
     },    
     methods: {
-        playGame(user) {
+        playGame(userTool) {
             let AI = this.tools[Math.floor(Math.random() * this.tools.length)]
 
-            if (AI == this.rules[user]) {
+            if (AI === this.rules[userTool]) {
                 this.message = 'You win'
-                this.userChoice = user
+                this.userChoice = userTool
                 this.computerChoice = AI
-            } else if (user == this.rules[AI]) {
+            } else if (userTool === this.rules[AI]) {
                 this.message = 'Computer wins'
-                this.userChoice = user
+                this.userChoice = userTool
                 this.computerChoice = AI
-            } else if (user == AI) {
+            } else if (userTool === AI) {
                 this.message = 'Tie game'
-                this.userChoice = user
+                this.userChoice = userTool
                 this.computerChoice = AI
             } else {
                 this.message = 'mistake'
